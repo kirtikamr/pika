@@ -1,0 +1,368 @@
+#1>>>>str1="a=1&b=11&name=milind"
+#OutPut={'a': '1', 'b': '11', 'name': 'milind'}
+'''str1="a=1&b=11&name=milind"
+l=str1.split('&')
+l1=[]
+for i in l:
+        l1.append(i.split('='))
+print(l1)
+print(dict(l1))'''
+
+
+#2>>>>How to rotatel given list
+#l=[1,2,3,4,5,6,7]  ,step=3
+#OutPut=[4,5,6,7,1,2,3]
+'''l=[1,2,3,4,5,6,7]
+step=3
+
+def rotatelist(l,d,n):
+        l[:]=l[d:n]+l[0:d]
+        return l
+d=3
+n=len(l)
+print(rotatelist(l,d,n))'''
+
+#3>>>>>Sum of all Salary in given  list
+#l=[{'id':1,'salary':100},{'salary':200},{'id':2,"salary":300}]
+#Output=600
+
+'''l=[{'id':1,'salary':100},{'salary':200},{'id':2,"salary":300}]
+salary=0
+for i in l:
+    for j in i:
+        if j=='salary':
+            salary=salary+i[j]
+print(salary)'''
+
+#4>>>How to sort given list without using sort()
+#l=[1,11,2,2,22,3,33,4,44,5]
+#Output=[1, 2, 2, 3, 4, 5, 11, 22, 33, 44]
+
+'''l=[1,11,2,2,22,3,33,4,44,5]
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if l[i]>l[j]:
+            l[i],l[j]=l[j],l[i]
+print(l) '''
+
+#5>>>How to print Duplicate in given list
+#l=[1,2,'c','a','a',4,3,4,1,5]
+#Output=[1, 'a', 4]
+
+'''l=[1,2,'c','a','a',4,3,4,1,5]
+l1=[]
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if l[i]==l[j] and l[i] not in l1:
+            l1.append(l[i])
+print(l1) '''
+#6>>>Create a fibonacci by using Recursion
+
+'''def recur_fibo(n):
+        if n<=1:
+                return n
+        else:
+                return (recur_fibo(n-1)+recur_fibo(n-2))
+nterms=int(input("How many terms?:"))
+if nterms<0:
+        print("please provide positive number")
+else:
+        for i in range(nterms):
+                print(recur_fibo(i))'''
+
+#7>>>str1="/*apple are & found % only @ red & green "
+#OUtput= apple are found only red and green
+
+'''str1="/*apple are & found % only @ red & green "
+output=''
+for i in str1:
+        if ((i>="A" and i<="Z")|
+            (i>="a" and i<="z")|
+            (i==" ")):
+                output=output+i
+                
+print(output)'''
+
+#8>>>>Find Second largest element in list
+#l=[23,34,546,47,768,99]   OUTPUT=546
+
+'''l=[23,34,546,47,768,99]
+largest=l[0]
+sec_largest=l[0]
+
+for i in range(len(l)):
+        if l[i]>largest:
+                largest=l[i]
+for i in range(len(l)):
+        if l[i]>sec_largest and l[i]!=largest:
+                sec_largest=l[i]
+print(largest)
+print(sec_largest)'''
+
+#9>>>Find the pair with given number in list
+'''l=[1,2,3,4,6,7,8,9]
+k=10
+for i in range(len(l)):
+        for  j in range(i+1,len(l)):
+                if l[i]+l[j]==k:
+                        #print(l[i],l[j])
+                        print(l.index(l[i]),l.index(l[j]))'''
+
+
+#10>>>Find maximum repeated charector in a string without having on 2 complexity
+'''s="implicityimplicityim"
+d={}
+for i in s:
+        if i in d:
+                d[i]+=1
+        else:
+                d[i]=1
+                
+max_char=max(d,key=d.get)
+print(max_char)'''
+
+#4-Ways to reverse the given list
+#l=[1,2,3,4,5,6]
+#l.reverse()
+#print(l)
+#r=list(reversed(l))
+#print(r)
+#print(l[::-1])
+'''l1=[]
+for i in range(len(l)-1,-1,-1):
+        l1.append(l[i])
+        
+print(l1)'''
+
+#11>>> even_odd()
+'''def even_odd(num):
+        if num%2==0:
+                print(num,'is even number')
+        else:
+                print(num,'is odd number')
+                
+num=int(input("Enter any number:"))
+even_odd(num)'''
+
+#12>>>Multiplication of two number
+
+'''def mul(a,b):
+        if a==0 or b==0:
+                return 0
+        if a==1:
+                return b
+        if b==1:
+                return a
+        return a+mul(a,b-1)
+
+def multiply(a,b):
+        m=mul(a,abs(b))
+        return -m if b<0 else m
+print(multiply(22,4))''' #88
+
+#13>>>Addition of two number
+
+'''def add_num(num1,num2):
+        while num2!=0:
+                data=num1&num2
+                num1=num1^num2
+                num2=data<<1
+        return num1
+print(add_num(11,23))'''
+
+#14>>>Prime number
+'''n=int(input("Enter any number:"))
+if n<2:
+        print(n,'Not prime number')
+else:
+        for i in range(2,n):
+                if n%i==0:
+                        print(n,"Not prime number")
+                        break
+
+        else:
+                print(n,'is prime number')'''
+
+#15>> Missing element in the list
+'''l=[1,2,3,5,6,7]  
+def missing(l):
+        n=l[-1]
+        total=n*(n+1)//2
+        print(total-sum(l))
+        
+missing(l)''' #Output=4
+
+'''d1={'A':'a'}
+d2={'B':'b'}
+
+d3=d1.copy()
+d3.update(d2)
+print(d3)
+from collections import ChainMap
+d=ChainMap(d1,d2)
+print(dict(d))
+d=d1|d2
+print(d)'''
+
+'''class Test():
+        def __init__(self):
+                print("Address of self=",id(self))
+                
+t=Test()
+print("Address of t=",id(t))'''
+
+'''s="Python is very easy"
+l=s.split()
+l1=[]
+i=0
+while i<len(l):
+        if i%2==0:
+                l1.append(l[i])
+        else:
+                l1.append(l[i][::-1])
+        i=i+1
+print(' '.join(l1))        
+'''
+
+'''s="N2A5C1"
+a=[]
+d=[]
+
+for ch in s:
+        if ch.isalpha():
+                a.append(ch)
+        else:
+                d.append(ch)
+                
+print(''.join(sorted(a)+sorted(d)))'''
+
+'''s="A4B2C9"
+output=''
+for ch in s:
+        if ch.isalpha():
+                x=ch
+        else:
+                d=int(ch)
+                output=output+x*d
+                
+print(output)'''
+
+'''s="A4B2C9"
+output=''
+for ch in s:
+        if ch.isalpha():
+                x=ch
+                output=output+ch
+        else:
+                d=int(ch)
+                new=chr(ord(x)+d)
+                output=output+new
+                
+print(output)'''
+
+'''s="fjsdfgjsdf"
+d={}
+output=''
+
+for ch in s:
+        d[ch]=d.get(ch,0)+1
+        
+for k,v in sorted(d.items()):
+        output=output+k+str(v)
+        
+print(d,output)        
+'''
+
+'''s="fjsdfgjsdf"
+l=[]
+for ch in s:
+        if ch not in l:
+                l.append(ch)
+                
+for ch in sorted(l):
+        print("{} occures {} times".format(ch,s.count(ch)))'''
+
+
+111111111111111111111111111111111111111111111111111111111111111111111111111111111
+djangorestframework-simplejwt==5.2.0
+filelock==3.6.0
+fonttools==4.34.4
+kiwisolver==1.4.3
+matplotlib==3.5.2
+mysql-connector-python==8.0.29
+numpy==1.23.1
+packaging==21.3
+pandas==1.4.3
+Pillow==9.1.1
+platformdirs==2.5.0
+protobuf==3.20.1
+PyJWT==2.4.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+pytz==2021.3
+qrcode==7.3.1
+scipy==1.8.1
+six==1.16.0
+sqlparse==0.4.2
+tzdata==2021.5
+virtualenv==20.13.1
+virtualenvwrapper-win==1.2.7
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+You no longer need to go to a brick-and-mortar store to purchase the items you need. With the emergence of e-commerce 
+websites, shopping online has become a reality.
+
+Online stores are quite attractive since they are convenient and time-saving. Besides, they offer attractive
+ deals and unimaginable discount rates.
+
+Whether you want to furnish your home or purchase groceries for the day,
+ you only need to visit these e-commerce websites and place your order.
+ The best part is that you’ll have your goods delivered right to your doorstep sometimes for free.
+
+That said, buying furniture online can be tempting and overwhelming at the same time. 
+You get a plethora of different furnishing options to choose from but remain unsure whether they will fit your
+ space or be as comfy as you expect them to be.
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Enbuild - 1st level programming test
+
+
+
+1. Render the Triangle for the given character and number of rows. That means if input character is D and number of rows are 4 then pyramid will be:
+D
+D E
+D E F
+D E F G
+
+2. Write a game to "Guess the number", that means your program will generate any random number and the user will need to guess the number. In this if take the input from the user
+- if user guesses the correct number (i.e. it is equal to the generated random number) then show him success message as "You have guessed the number " + number and if  
+- if user fails to guess then show message "Not a correct number please try again" and take the next number from the user
+
+3. Write a program to print the first 100 prime numbers.
+
+4. Consider one integer array. Update the array as per the following requirements:
+- If the element is negative number then make the square of the number
+- Keep the 0 as is
+- If the number is positive even number then add the same even number to that
+- If the number is positive odd number then print the next odd number to that
+Ex. {0, 13, 5, -4, 6} --> {0, 15, 7, 16, 12}
+
+###################################################
+2+ years experience of Python coding skills
+2+ years experience developing Angular JS applications into production
+2+ years hands-on experience with the Django framework
+Strong understanding of the Angular JS framework, front-end technologies, such as JavaScript, HTML5, and CSS3.
+Solid database skills in a relational database (i.e. Post GRES SQL, MySQL, Ms SQL, etc.)
+Knowledge of how to build and use with RESTful APIs
+Strong knowledge of version control (i.e. GIT, SVN, etc.)
+Experience deploying Python applications into production
+Amazon Web Services (AWS) infrastructure knowledge is a plus
+
+
+
+
+
+
+
+
+
